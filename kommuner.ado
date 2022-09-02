@@ -28,8 +28,12 @@ quietly {
 				if !_rc {
 					drop `var'
 				}
+				else {
+					local lvar = lower("`var'")
+					rename `var' `lvar'
+				}
 			}
-
+			format %10.0g folkmängd*
 			compress
 			save "`fn'.dta", replace
 		}
